@@ -18,13 +18,23 @@ Click the "Reset Token" button to recieve your token that you will need for your
 * Note: To understand this code/debug it if there's a bug (if there is, make a PR on the library repo), you will require a somewhat intermediate language of Python.
 
 **Full Code**
-```py
+```python
 
 import inkcord
 from inkcord import Client, BitIntents
 import inkcord.utility as util
 # note that in this version, all the import items are clumped together into inkcord, but it will be changed to this type of structure in later updates
-intents = BitIntents.all()
+intents = BitIntents.all() # in actual, non example projects, this is VERY MUCH not recommended.
 bot = Client(token="TOKEN HERE",intents=intents)
 
-@bot.
+@bot.command(name="example",description="I'm an example command! Run me!!!!")
+async def exampl(inter: inkcord.SlashInteraction):
+    # note that the function HAS to be asynchronous
+    inter.response("Hey, I'm an interaction command!")
+
+@bot.prereq()
+async def sync_all():
+    await bot.sync()
+
+bot.run()
+```
