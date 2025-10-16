@@ -21,10 +21,11 @@ Click the "Reset Token" button to recieve your token that you will need for your
 ```python
 
 import inkcord
-from inkcord import Client, BitIntents
+from inkcord import Client
 import inkcord.utility as util
-# note that in this version, all the import items are clumped together into inkcord, but it will be changed to this type of structure in later updates
-intents = BitIntents.all() # in actual, non example projects, this is VERY MUCH not recommended.
+# note that in this version, all the import items are clumped together into inkcord.
+# will be updated in next update
+intents = util.BitIntents.all() # in actual, non example projects, this is VERY MUCH not recommended.
 bot = Client(token="TOKEN HERE",intents=intents)
 
 @bot.command(name="example",description="I'm an example command! Run me!!!!")
@@ -38,3 +39,6 @@ async def sync_all():
 
 bot.run()
 ```
+You will need the `sync()` function to make sure your commands are up to date and they show in the discord client.
+When you use this command, you will see the bot respond with "Hey, I'm an interaction command!".
+For more advanced projects, you can use this website for reference.

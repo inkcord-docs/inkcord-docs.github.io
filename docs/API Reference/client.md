@@ -1,0 +1,3 @@
+# inkcord.Client
+This object has ...
+WIP
